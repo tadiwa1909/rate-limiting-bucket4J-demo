@@ -13,16 +13,14 @@ import java.time.LocalDateTime;
 public class Account {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "currency_sequence")
-    @SequenceGenerator(name = "currency_sequence", sequenceName = "currency_sequence", allocationSize = 1)
+    @GeneratedValue
     @Column(updatable = false)
     private Long id;
 
-    @Column(name = "currency", unique = true, updatable = false)
+    @Column(name = "account_number", unique = true, updatable = false)
     private String accountNo;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "currency", updatable = true)
     private Currency currency;
 
     @Column(name = "balance", updatable = false)
